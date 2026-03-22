@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Zeyada&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&family=Zhi+Mang+Xing&family=Long+Cang&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-handwriting: "Zeyada", cursive;
+  --font-chinese: "Ma Shan Zheng", cursive;
+  --font-serif-sc: "Noto Serif SC", serif;
+  --font-brush: "Zhi Mang Xing", cursive;
+  --font-cute: "Long Cang", cursive;
+  --color-primary: #7dd3fc;
+  --color-background: #0a0e1a;
+  --color-surface: #0f1524;
+  --color-surface-variant: #1a2438;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-slate-200 font-sans;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(15, 21, 36, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(125, 211, 252, 0.1);
+  }
+
+  .glass-elevated {
+    background: rgba(15, 21, 36, 0.75);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(125, 211, 252, 0.15);
+  }
+
+  .cyber-glow {
+    box-shadow: 0 0 20px rgba(125, 211, 252, 0.2);
+  }
+
+  .primary-button {
+    @apply relative flex items-center justify-center gap-2 px-6 py-3 rounded-xl 
+           bg-primary/10 border border-primary/30 text-primary font-bold uppercase tracking-wider
+           hover:bg-primary/20 transition-all duration-300 active:scale-95;
+  }
+
+  .secondary-button {
+    @apply flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+           bg-white/5 border border-white/10 text-slate-400 hover:text-sky-200 
+           hover:border-sky-300/30 transition-all duration-300 active:scale-95 disabled:opacity-50;
+  }
+
+  .filter-grayscale { filter: grayscale(100%); }
+  .filter-sepia { filter: sepia(100%); }
+  .filter-warm { filter: sepia(30%) saturate(140%); }
+  .filter-cool { filter: hue-rotate(180deg) saturate(120%); }
+  .filter-vibrant { filter: saturate(180%); }
+  .filter-vintage { filter: sepia(50%) contrast(120%) brightness(90%); }
+}
